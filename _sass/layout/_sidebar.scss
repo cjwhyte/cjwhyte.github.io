@@ -219,12 +219,11 @@
 
 .author__urls-wrapper {
   position: relative;
-  display: table-cell;
-  vertical-align: middle;
+  display: block; /* Changed from table-cell to block to stack below bio */
   font-family: $sans-serif;
   z-index: 10;
   position: relative;
-  cursor: pointer;
+  /* cursor: pointer; Removed pointer since it's no longer a button */
 
   li:last-child {
     a {
@@ -236,26 +235,19 @@
     display: block;
   }
 
-  button {
-    margin-bottom: 0;
-
-    @include breakpoint($large) {
-      display: none;
-    }
-  }
+  /* Button styles removed as button is deleted */
 }
 
 .author__urls {
-  display: none;
-  position: absolute;
-  right: 0;
+  display: block; /* Always display the links */
+  position: relative; /* Normal flow, not absolute */
   margin-top: 15px;
   padding: 10px;
   list-style-type: none;
   border: 1px solid var(--global-border-color);
   border-radius: $border-radius;
   background: var(--global-bg-color);
-  z-index: -1;
+  /* z-index: -1; Removed */
   box-shadow: 0 0 10px rgba(#000, 0.25);
   cursor: default;
 
@@ -269,38 +261,13 @@
     box-shadow: none;
   }
 
+  /* Hide the triangle pointers that pointed to the button */
   &:before {
-    display: block;
-    content: "";
-    position: absolute;
-    top: -11px;
-    left: calc(50% - 10px);
-    width: 0;
-    border-style: solid;
-    border-width: 0 10px 10px;
-    border-color: var(--global-border-color) transparent;
-    z-index: 0;
-
-    @include breakpoint($large) {
-      display: none;
-    }
+    display: none; 
   }
 
   &:after {
-    display: block;
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: calc(50% - 10px);
-    width: 0;
-    border-style: solid;
-    border-width: 0 10px 10px;
-    border-color: #fff transparent;
-    z-index: 1;
-
-    @include breakpoint($large) {
-      display: none;
-    }
+    display: none;
   }
 
   li {
