@@ -15,5 +15,5 @@ I originally trained as a cognitive scientist, but somewhere along the way, I ca
 I recently submitted my PhD in computational neuroscience at the University of Sydney. Before the PhD, I received an MPhil in computational neuroscience from the University of Cambridge, an MPhil in experimental psychology from the University of Sydney, and a BSc with a major in cognitive and brain sciences and a minor in philosophy from Macquarie University. 
 
 {% if site.author.googlescholar %}
-  <div class="wordwrap"> A full list of my publications can be found on <a href="{{site.author.googlescholar}}"> my Google Scholar profile</a>.</div>
+  <div class="wordwrap"> A full list of my publications can be found on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
 {% endif %}
