@@ -164,27 +164,48 @@
   }
 }
 
+.author__avatar {
+  display: block;       /* Stack vertically on mobile */
+  width: auto;          /* Allow full width container */
+  text-align: center;   /* Center the image */
+  margin-bottom: 10px;  /* Add space below image */
+
+  @include breakpoint($large) {
+    display: block;
+    width: auto;
+    height: auto;
+    text-align: left;   /* Optional: Return to left align on desktop if desired */
+  }
+
+  img {
+    max-width: 175px;
+    border-radius: 50%;
+    display: inline-block; /* Ensure it respects text-align center */
+
+    @include breakpoint($large) {
+      padding: 5px;
+      border: 1px solid var(--global-border-color);
+      display: block;      /* Return to block on desktop */
+      margin: 0 auto 10px; /* Center on desktop sidebar */
+    }
+  }
+}
+
 .author__content {
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 15px;
-  padding-right: 25px;
+  display: block;       /* Stack vertically on mobile */
+  width: 100%;          /* Full width */
+  text-align: center;   /* Center the name and bio text */
+  padding-left: 0;      /* Remove side padding used for table layout */
+  padding-right: 0;
   line-height: 1;
+  margin-bottom: 20px;  /* Space before the links box */
 
   @include breakpoint($large) {
     display: block;
     width: 100%;
     padding-left: 0;
     padding-right: 0;
-  }
-}
-
-.author__name {
-  margin: 0;
-
-  @include breakpoint($large) {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    text-align: left;   /* Return to left align on desktop */
   }
 }
 .sidebar .author__name {
