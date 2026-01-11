@@ -335,16 +335,16 @@
 
   /* 2. Position the Avatar (Photo) on the Left */
   .author__avatar {
-    width: 50%;       /* Takes up about 1/3 of width */
-    order: 1;         /* First item */
-    margin-bottom: 10; /* Remove extra space */
+    width: 40%;       /* Takes up about 1/3 of width */
+    order: 2;         /* First item */
+    margin-bottom: 0; /* Remove extra space */
   }
 
   /* 3. Position the Links (Box) on the Right */
   .author__urls-wrapper {
     width: 40%;       /* Takes up the rest of the width */
-    order: 2;         /* Second item (Next to photo) */
-    padding: 10;
+    order: 1;         /* Second item (Next to photo) */
+    padding: 0;
   }
 
   /* 4. Force the Name/Bio to drop to the bottom */
