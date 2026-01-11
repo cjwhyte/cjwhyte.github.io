@@ -322,54 +322,42 @@
     }
   }
 }
-/* --- Custom Mobile Layout: Photo Left, Links Right --- */
-@media (max-width: 600px) {
-  
-  /* 1. Turn the sidebar into a Flex container */
-  .sidebar {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center; /* Centers items vertically */
-    justify-content: space-between;
-  }
+/* 1. The Parent Container */
+.split-container {
+  display: flex;          /* Enables side-by-side layout */
+  width: 100%;            /* Takes full width of the area */
+  min-height: 400px;      /* Ensures the box has height even if empty */
+  background-color: #f4f4f4; 
+  box-sizing: border-box; /* Prevents padding from breaking layout */
+}
 
-  /* 2. Position the Avatar (Photo) on the Left */
-  .author__avatar {
-    width: 40%;       /* Takes up about 1/3 of width */
-    order: 2;         /* First item */
-    margin-bottom: 0; /* Remove extra space */
-  }
+/* 2. The Two Halves */
+.split-image, 
+.split-content {
+  flex: 1;                /* MAGIC LINE: Forces both sides to be equal width (50%) */
+  display: flex;          /* Allows us to center content inside these boxes */
+  flex-direction: column; 
+  justify-content: center; /* Centers content vertically */
+  position: relative;     /* Important for image positioning */
+}
 
-  /* 3. Position the Links (Box) on the Right */
-  .author__urls-wrapper {
-    width: 40%;       /* Takes up the rest of the width */
-    order: 1;         /* Second item (Next to photo) */
-    padding: 0;
-  }
+/* 3. The Image Logic */
+.split-image img {
+  width: 100%;            /* Force image to fill its container width */
+  height: 100%;           /* Force image to fill its container height */
+  object-fit: cover;      /* Crucial: Crops image to fill space without distortion */
+  display: block;         /* Removes default bottom whitespace */
+}
 
-  /* 4. Force the Name/Bio to drop to the bottom */
-  .author__content {
-    width: 100%;      /* Full width */
-    order: 3;         /* Third item (Below everything) */
-    margin-top: 10px;
-  }
+/* 4. The Content Styling (Right Side) */
+.split-content {
+  padding: 40px;          /* Gives the text some breathing room */
+  text-align: center;     /* Centers text horizontally */
+}
 
-  /* 5. VISUALS: Hide the "Follow" button & Force icons to show */
-  .author__urls-wrapper button {
-    display: none;    /* Hide the 'Follow' button */
-  }
-  
-  .author__urls {
-    display: block !important; /* Always show the links */
-    text-align: left;          /* Align icons to left */
-    padding: 10px;             /* Padding inside the box */
-    border-radius: 5px;        /* Rounded corners */
-    font-size: 0.8em;          /* Make text slightly smaller to fit */
-  }
-  
-  /* Make the list items compact */
-  .author__urls li {
-    display: inline-block;     /* Show icons side-by-side (optional) */
-    margin-right: 10px;
+/* Optional: Make it stack on mobile phones */
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column; /* Stack them vertically on small screens */
   }
 }
